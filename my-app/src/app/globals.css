@@ -7,6 +7,11 @@
     --pink: #FF2A70;
     
     }
+    html{
+        background-color: var(--black);
+        color: var(--white);
+        
+    }
 
 h1, h2, h3, h4, h5, h6, p {
     font-weight: 500;
