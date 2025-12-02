@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer"
 import Hero from "./components/Hero";
+import WelcomeCoomponent from '@/app/WelcomeComponent';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
        <Hero/>
        <Header />
        <Footer />
+       <WelcomeCoomponent/>
       </main>
   );
 }
