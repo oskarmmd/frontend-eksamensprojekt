@@ -1,6 +1,10 @@
-import "./globals.css";
+import { Ubuntu } from 'next/font/google';
+import './globals.css';
 
-
+const ubuntu = Ubuntu({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+});
 
 export const metadata = {
   title: "NightClub",
