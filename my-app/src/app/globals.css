@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --pink: #FF2A70;
+    
+    }
+
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: 500;
+
+}
+h1{
+font-size: 45px  ;
+border-bottom: 4px;
+  border-style: solid;
+border-image: linear-gradient(to right, var(--black), var(--pink), var(--black)) 1;
+width: fit-content;
+padding-right: 1rem;
+padding-left: 1rem;
+
+}
+h2{
+    font-size: ;
+   
+}
+h3{
+    font-size: 31px;
+    border-bottom: 4px;
+  border-style: solid;
+    border-image: linear-gradient(to right, var(--black), var(--pink), var(--black)) 1;
+    width: fit-content;
+    padding-right: 1rem;
+padding-left: 1rem;
+}
+h4{
+    font-size: 27px ;
+}
+h5{
+    font-size: 25px;
+}
+p{
+    font-size: 23px;
+}
+
+
+button{
+    border-top: 4px ;
+  border-bottom: 4px ;
+  border-style: solid;
+border-color: var(--white);
+  width: fit-content;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  
+}
