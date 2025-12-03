@@ -5,7 +5,7 @@ import Logo from "@/assets/Logo.png";
 const Header = () => {
   return (
     <header className="bg-black border-2 border-[#FF2A70] relative">
-      {/* Top-left triangle */}
+   
       <svg
         className="absolute top-0 left-0"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,15 +17,15 @@ const Header = () => {
         <path d="M0 32V0H32L0 32Z" fill="#FF2A70" />
       </svg>
 
-      <nav className="flex items-center justify-between px-12 py-4 md:px-24 xl:px-48 py-6">
-        {/* Logo */}
+      <nav className="flex items-center justify-between px-12  md:px-24 xl:px-48 py-6">
+       
         <Link href="/">
           <Image src={Logo} alt="Site logo" priority    className="w-28 h-auto"/>
         </Link>
 
-        {/* Right side: links (desktop) + burger (mobile) */}
+      
         <div className="flex items-center gap-8">
-          {/* Desktop nav links */}
+         
           <div className="hidden  xl:flex gap-12 text-white font-semibold px-48 ">
             <Link href="/">Home</Link>
             <Link href="/blog">Blog</Link>
@@ -33,7 +33,7 @@ const Header = () => {
             <Link href="/contact">Contact us</Link>
           </div>
 
-          {/* Burger icon - only on mobile/tablet */}
+         
           <button
             aria-label="Open menu"
             className="xl:hidden"
@@ -54,7 +54,7 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Bottom-right triangle */}
+    
       <svg
         className="absolute bottom-0 right-0"
         xmlns="http://www.w3.org/2000/svg"
