@@ -1,15 +1,14 @@
-"use client";
-import './globals.css';
-import  EventCard from "./EventCard";
+import '../globals.css';
+import EventCard from "./EventCard";
 
 export default function EventComponent() {
     return (
-        <main className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center'>
           <h1 className='my-12 text-center'>
             WELCOME IN NIGHT
             <span className='text-(--pink)'>CLUB</span>
           </h1>
           <EventCard />
-        </main>
+        </div>
       );
 }
