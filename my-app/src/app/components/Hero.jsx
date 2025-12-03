@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Hero1 from "@/assets/bg/header_bg_1.jpg";
 import Hero2 from "@/assets/bg/header_bg_2.jpg";
 import Underline from "@/assets/bottom_line.png"; 
-import Logo from "/favicon.svg";
+
 
 const slides = [Hero1, Hero2];
 
@@ -17,7 +17,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 10);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
