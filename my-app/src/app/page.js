@@ -1,12 +1,13 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer"
+import Hero from "./components/Hero";
+
 export default function Home() {
   return (
-    <div className="">
       <main className="">
+       <Hero/>
        <Header />
        <Footer />
       </main>
-    </div>
   );
 }
