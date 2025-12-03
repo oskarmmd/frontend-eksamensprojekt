@@ -1,6 +1,10 @@
-import "./globals.css";
+import { Ubuntu } from 'next/font/google';
+import './globals.css';
 
-
+const ubuntu = Ubuntu({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+});
 
 export const metadata = {
   title: "NightClub",
@@ -22,6 +26,7 @@ export default function RootLayout({ children }) {
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+       
       </body>
     </html>
   );
