@@ -29,9 +29,9 @@ const EventCarousel = ({ events }) => {
   }
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto">
+    <div className="w-full max-w-[1200px]">
       {/* Carousel content */}
-      <div className="flex overflow-hidden">
+      <div className="flex justify-center overflow-hidden">
         {pages[currentPage].map((event) => (
           <div key={event.id} className={`w-${100 / cardsPerPage}%`}>
             <EventCard event={event} />
