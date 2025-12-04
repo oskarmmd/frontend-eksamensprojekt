@@ -18,15 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link>
-
-        </link>
-      </head>
-      <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
        
+      </head>
+      <body>
+        {children}
       </body>
     </html>
   );
