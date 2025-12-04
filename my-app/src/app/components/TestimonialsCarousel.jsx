@@ -12,9 +12,12 @@ const TestimonialCarousel = ({ testimonial }) => {
 
   // Opdel events i sider
   const pages = [];
+
+if (testimonial && testimonial.length > 0) {
   for (let i = 0; i < testimonial.length; i += cardsPerPage) {
     pages.push(testimonial.slice(i, i + cardsPerPage));
   }
+}
 
   return (
     <div className="w-full max-w-[1200px] mx-auto">
