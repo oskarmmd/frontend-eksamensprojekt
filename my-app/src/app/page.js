@@ -16,8 +16,7 @@ export default function Home() {
       fallback={
         <div className="flex h-screen items-center justify-center">
         <Image src={Loading} alt="Loading GIF" priority className=""/>
-        
-        </div>
+         </div>
       }
     >
        <Hero/>
