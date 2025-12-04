@@ -56,7 +56,7 @@ p{
 }
 
 
-button{
+/*button{
     border-top: 4px ;
   border-bottom: 4px ;
   border-style: solid;
@@ -109,3 +109,4 @@ border-color: var(--white);
   opacity: 0;
   animation: popDown 0.6s 1.05s ease-out forwards; 
 }
+}*/

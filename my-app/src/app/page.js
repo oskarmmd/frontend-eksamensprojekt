@@ -5,6 +5,9 @@ import WelcomeCoomponent from '@/app/WelcomeComponent';
 import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"
+import EventComponent from "./components/EventComponent";
+
+import './globals.css';
 
 export default function Home() {
   return (
@@ -23,5 +26,6 @@ export default function Home() {
        <Footer />
        </Suspense>
       </main>
+  
   );
 }
