@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import EventCarousel from "./EventCarousel";
+import TestimonialCarousel from "./TestimonialsCarousel";
 
-const EventComponent = () => {
+const TestimonialComponent = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/events")
+    fetch("http://localhost:4000/testimonials")
       .then((res) => res.json())
       .then((data) => setEvents(data));
   }, []);
@@ -16,15 +16,11 @@ const EventComponent = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="my-12 text-center">
-        WELCOME IN NIGHT
-        <span className="text-[var(--pink)]">CLUB</span>
-      </h1>
-      <EventCarousel events={events} />
+      <TestimonialCarousel events={events} />
     </div>
   );
 };
 
-export default EventComponent;
+export default TestimonialComponent;
 
 

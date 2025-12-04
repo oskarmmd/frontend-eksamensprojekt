@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"
 import EventComponent from "./components/EventComponent";
+import TestimonialComponent from "./components/TestimonialsComponent";
 
 import './globals.css';
 
@@ -22,6 +23,9 @@ export default function Home() {
        <Hero/>
        <Header />
        <WelcomeCoomponent/>
+<EventComponent/>
+
+<TestimonialComponent/>
        <Footer />
        </Suspense>
       </main>
