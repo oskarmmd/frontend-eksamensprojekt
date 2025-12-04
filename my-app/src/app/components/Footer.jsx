@@ -6,7 +6,7 @@ import RecentPost2 from "@/assets/content-img/recent_post2.jpg"
 
 const Footer = () => {
   return (
-    <footer className='bg-[url("/footerbg.jpg")] bg-cover bg-center bg-no-repeat text-white'>
+    <footer className='bg-[url("/footerbg.jpg")] bg-cover bg-center bg-no-repeat text-white mt-12'>
       {/* dark overlay */}
       <div className="bg-linear-to-b from-black/60 to-black/90 py-12">
         <div className="mx-auto max-w-6xl px-6">
