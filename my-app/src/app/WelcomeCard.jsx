@@ -1,5 +1,6 @@
 "use client";
 import './globals.css';
+import { Suspense } from "react";
 
 import Image from "next/image";
 import Image1 from "../assets/content-img/thumb1.jpg";
