@@ -45,7 +45,7 @@ const EventCarousel = ({ events }) => {
           <button
             key={index}
             onClick={() => setCurrentPage(index)}
-            className={`w-4 h-4  ${
+            className={`w-4 h-4 rounded-full ${
               index === currentPage ? "bg-pink-500" : "bg-gray-300"
             }`}
           />
