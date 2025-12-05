@@ -7,6 +7,7 @@ import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"
 import EventComponent from "./components/EventComponent";
 import TestimonialComponent from "./components/TestimonialsComponent";
+import RecentblogComponent from "./components/RecentblogComponent";
 
 import './globals.css';
 
@@ -26,6 +27,7 @@ export default function Home() {
 <EventComponent/>
 
 <TestimonialComponent/>
+<RecentblogComponent/>
 
        <Footer />
        </Suspense>
