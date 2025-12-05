@@ -26,6 +26,7 @@ export default function Home() {
 <EventComponent/>
 
 <TestimonialComponent/>
+
        <Footer />
        </Suspense>
       </main>

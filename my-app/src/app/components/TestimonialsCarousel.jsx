@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import TestimonialCard from "./TestimonialCard";
 
-const TestimonialCarousel = ({ testimonial }) => {
+const TestimonialCarousel = ({ testimonials }) => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const cardsPerPage = 1;
@@ -13,19 +13,19 @@ const TestimonialCarousel = ({ testimonial }) => {
   // Opdel events i sider
   const pages = [];
 
-if (testimonial && testimonial.length > 0) {
-  for (let i = 0; i < testimonial.length; i += cardsPerPage) {
-    pages.push(testimonial.slice(i, i + cardsPerPage));
+  if (testimonials && testimonials.length > 0) {
+    for (let i = 0; i < testimonials.length; i += cardsPerPage) {
+      pages.push(testimonials.slice(i, i + cardsPerPage));
+    }
   }
-}
 
   return (
     <div className="w-full max-w-[1200px] mx-auto">
       {/* Carousel content */}
       <div className="flex overflow-hidden">
-        {pages[currentPage]?.map((testimonial) => (
+      {pages[currentPage]?.map((testimonial) => (
           <div key={testimonial.id} style={{ width: `${100 / cardsPerPage}%` }}>
-          <TestimonialCard event={testimonial} />
+         <TestimonialCard testimonial={testimonial} />
         </div>
         ))}
       </div>
@@ -36,7 +36,7 @@ if (testimonial && testimonial.length > 0) {
           <button
             key={index}
             onClick={() => setCurrentPage(index)}
-            className={`w-4 h-4 rounded-full ${
+            className={`w-4 h-4  ${
               index === currentPage ? "bg-pink-500" : "bg-gray-300"
             }`}
           />
