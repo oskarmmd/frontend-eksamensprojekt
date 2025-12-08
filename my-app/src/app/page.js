@@ -8,6 +8,7 @@ import Loading from "@/assets/loader/madbars.gif"
 import EventComponent from "./components/EventComponent";
 import TestimonialComponent from "./components/TestimonialsComponent";
 import Galleri from "./components/Galleri";
+import RecentblogComponent from "./components/RecentblogComponent";
 
 import './globals.css';
 
@@ -26,6 +27,8 @@ export default function Home() {
        <EventComponent/>
        <Galleri/>
        <TestimonialComponent/>
+       <RecentblogComponent/>
+
        <Footer />
        </Suspense>
       </main>
