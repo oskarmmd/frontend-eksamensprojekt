@@ -7,6 +7,7 @@ import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"
 import EventComponent from "./components/EventComponent";
 import TestimonialComponent from "./components/TestimonialsComponent";
+import Galleri from "./components/Galleri";
 
 import './globals.css';
 
@@ -18,14 +19,13 @@ export default function Home() {
         <div className="flex h-screen items-center justify-center">
         <Image src={Loading} alt="Loading GIF" priority className=""/>
          </div>
-      }
-    >
+        }>
        <Hero/>
        <Header />
        <WelcomeCoomponent/>
-<EventComponent/>
-
-<TestimonialComponent/>
+       <EventComponent/>
+       <Galleri/>
+       <TestimonialComponent/>
        <Footer />
        </Suspense>
       </main>
