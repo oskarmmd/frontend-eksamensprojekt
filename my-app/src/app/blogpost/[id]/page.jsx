@@ -30,6 +30,21 @@ const [email, setEmail] = useState("");
         const res = await fetch(`http://localhost:4000/blogposts/${id}`);
         const data = await res.json();
         setBlog(data);
+        
+        let fetchedComments = [];
+        if (data.comments){
+          fetchedComments = data.comments;
+        } else{
+          const commentsRes = await fetch(`http://localhost:4000/blogposts/${id}/comments`);
+          fetchedComments = await commentsRes.json();
+         
+        }
+
+        const validComments = fetchedComments.filter(
+          (c) => c.name && c.text && c.createdAt
+        );
+        setComments(validComments);
+
       } catch (error) {
         console.error("error:", error);
       } finally {
