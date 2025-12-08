@@ -1,0 +1,89 @@
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+import GalleriTile from "./GalleriTile";
+
+export default function Galleri() {
+  const [images, setImages] = useState([]);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const res = await fetch("http://localhost:4000/gallery");
+      const data = await res.json();
+      setImages(data);
+    };
+
+    fetchImages();
+  }, []);
+
+  useEffect(() => {
+    if (!images.length) return;
+
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
+    const tiles = sectionEl.querySelectorAll(".fade-in-left");
+    if (!tiles.length) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          tiles.forEach((el, i) => {
+            setTimeout(() => {
+              el.classList.add("visible");
+            }, i * 150);
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(sectionEl);
+
+    return () => observer.disconnect();
+  }, [images]);
+
+  if (images.length < 7) return null;
+
+  const topRow = images.slice(0, 4);
+  const bottomRow = images.slice(4, 7);
+
+  return (
+    <section ref={sectionRef} className="bg-black py-10 w-full">
+      <h1 className="text-white text-2xl text-center font-bold mb-12 mx-auto w-fit">
+        NIGHT CLUB GALLERY
+      </h1>
+
+      <div className="collage-wrapper mx-auto">
+        {/* TOP ROW */}
+        <div className="flex">
+          {topRow.map((img, i) => {
+            const isBig = i % 2 === 0;
+            return (
+              <GalleriTile
+                key={img.id}
+                src={img.asset.url}
+                alt={img.description}
+                className={`${isBig ? "w-[28.2%]" : "w-[21.7%]"} h-[40vw] md:h-[18vw]`}
+              />
+            );
+          })}
+        </div>
+
+        {/* BOTTOM ROW */}
+        <div className="flex">
+          {bottomRow.map((img) => (
+            <GalleriTile
+              key={img.id}
+              src={img.asset.url}
+              alt={img.description}
+              className="w-1/3 h-[40vw] md:h-[18vw]"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
