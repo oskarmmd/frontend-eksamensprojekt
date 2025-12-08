@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const RecentblogCard = ({ blog }) => {
     return (
-        <Link rel="/my-app/src/app/blogpost/page.js" href="blogpost" >
+        <Link href={`/blogpost/${blog.id}`}>
       <div className=" p-4 my-2 h-full  max-w-[400px]">
         <img
         src={blog.asset.url}
