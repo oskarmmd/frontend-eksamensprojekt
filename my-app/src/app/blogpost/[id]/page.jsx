@@ -19,6 +19,8 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
 
   const [comments, setComments] = useState([]);
+  const [name, setName] = useState("");
+const [email, setEmail] = useState("");
   const [commentText, setCommentText] = useState("");
 
   // ✅ KORREKT useEffect – ingen syntax-fejl
@@ -28,8 +30,23 @@ export default function BlogPage() {
         const res = await fetch(`http://localhost:4000/blogposts/${id}`);
         const data = await res.json();
         setBlog(data);
+        
+        let fetchedComments = [];
+        if (data.comments){
+          fetchedComments = data.comments;
+        } else{
+          const commentsRes = await fetch(`http://localhost:4000/blogposts/${id}/comments`);
+          fetchedComments = await commentsRes.json();
+         
+        }
+
+        const validComments = fetchedComments.filter(
+          (c) => c.name && c.text && c.createdAt
+        );
+        setComments(validComments);
+
       } catch (error) {
-        console.error("Fejl ved hentning af blog:", error);
+        console.error("error:", error);
       } finally {
         setLoading(false);
       }
@@ -40,7 +57,43 @@ export default function BlogPage() {
     }
   }, [id]);
 
-  
+  async function handleSubmit(e){
+    e.preventDefault();
+
+      // ✅ Simple valideringer
+  if (!name || !email || !commentText) {
+    alert("Please fill out all fields before submitting your comment.");
+    return;
+  }
+
+    const newComment = {
+      name,
+      email,
+      text: commentText,
+      createdAt: new Date().toISOString(),
+    };
+
+    try{
+      const res = await fetch(
+        `http://localhost:4000/blogposts/${id}/comments`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newComment),
+        }
+      );
+      const savedComment = await res.json();
+
+      setComments((prev) => [...prev, savedComment]);
+      setName("");
+    setEmail("");
+    setCommentText("");
+    } catch (error){
+      console.error("Error creating comment:", error);
+    }
+  }
 
  {/*✅ LOADING STATE */} 
   if (loading) {
@@ -90,7 +143,7 @@ export default function BlogPage() {
         />
        </div>
        <div className="relative z-10  text-white py-6">
-          <h4 className="text-4xl font-bold mb-2">{blog.title}</h4>
+          <p className="text-4xl font-bold mb-2">{blog.title}</p>
           
           <span className="text-[var(--pink)] ">BY: {blog.author}/ 3 comments / 16 Nov 2018</span><br />
          
@@ -99,6 +152,71 @@ export default function BlogPage() {
         <span className=" leading-relaxed">{blog.content}</span>
         </div>
       </div>
+
+      <div className="max-w-[1200px] mx-auto p-6  mt-10 space-y-6">
+      <h2 className="text-4xl font-bold">
+      {comments.length} COMMENTS 
+          </h2>
+
+
+          {/* ✅ VIS KOMMENTARER */}
+          <div >
+  {comments.map((comment, index) => (
+    <div key={index}>
+      <h2 className=" font-semibold text-2xl pt-10">
+        {comment.name}
+        <span className="mx-2">-</span>     
+        <small className="text-base text-[var(--pink)] ">
+          {new Date(comment.createdAt).toLocaleString()}
+        </small>
+      </h2>
+      <small className=" block text-base mt-4">{comment.text}</small> {/* block element med margin-top */}
+    </div>
+  ))}
+</div>
+      
+      {/* ✅ KOMMENTAR FORMULAR */}
+      <form onSubmit={handleSubmit} className="space-y-4 mt-6">
+
+      <div className="flex flex-col sm:flex-row gap-4">
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Your name"
+        className="w-full p-3 border "
+        required
+      />
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Your email"
+        className="w-full p-3 border "
+        required
+      />
+    </div>
+
+
+            <textarea
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              placeholder="Your comment..."
+              className="w-full p-3 border "
+              rows="10"
+              required
+            ></textarea>
+
+<div className="flex max-w-[1200px] justify-end">
+            <button
+              type="submit"
+              className=" border-t-1 border-b-1 border-solid border-[var(--white)] w-30 px-4 py-2 text-sm "
+            >
+              SUBMIT
+            </button>
+            </div>
+          </form>
+        </div>
 
       <Footer />
       </Suspense>
