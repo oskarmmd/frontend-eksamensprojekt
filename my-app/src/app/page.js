@@ -10,8 +10,11 @@ import TestimonialComponent from "./components/TestimonialsComponent";
 import Galleri from "./components/Galleri";
 import RecentblogComponent from "./components/RecentblogComponent";
 import MusicSection from "./components/MusicSection";
+import LatestVideo from "./components/VideoPlayer";
+
 
 import './globals.css';
+
 
 export default function Home() {
   return (
@@ -28,6 +31,7 @@ export default function Home() {
        <EventComponent/>
        <Galleri/>
        <MusicSection />
+       <LatestVideo />
        <TestimonialComponent/>
        <RecentblogComponent/>
 
