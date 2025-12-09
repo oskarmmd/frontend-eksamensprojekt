@@ -24,32 +24,41 @@ export default function Galleri() {
 
 
   useEffect(() => {
-    if (!images.length) return;
+  if (!images.length) return;
 
-    const sectionEl = sectionRef.current;
-    if (!sectionEl) return;
+  const sectionEl = sectionRef.current;
+  if (!sectionEl) return;
 
-    const tiles = sectionEl.querySelectorAll(".fade-in-left");
-    if (!tiles.length) return;
+  const tiles = sectionEl.querySelectorAll(".fade-in-left");
+  if (!tiles.length) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          tiles.forEach((el, i) => {
-            setTimeout(() => {
-              el.classList.add("visible");
-            }, i * 150); 
-          });
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.4 }
-    );
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-    observer.observe(sectionEl);
+  // 🔹 On mobile: no animation, just show them
+  if (isMobile) {
+    tiles.forEach((el) => el.classList.add("visible"));
+    return;
+  }
 
-    return () => observer.disconnect();
-  }, [images]);
+  // 🔹 On larger screens: keep the staggered fade-in
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        tiles.forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add("visible");
+          }, i * 150);
+        });
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.4 }
+  );
+
+  observer.observe(sectionEl);
+
+  return () => observer.disconnect();
+}, [images]);
 
   if (images.length < 7) return null;
 
@@ -80,38 +89,38 @@ export default function Galleri() {
 
       <div className="collage-wrapper mx-auto">
 
-        <div className="flex">
-          {topRow.map((img, i) => {
-            const isBig = i % 2 === 0;
-            const globalIndex = i; 
-            return (
-              <GalleriTile
-                key={img.id}
-                src={img.asset.url}
-                alt={img.description}
-                className={`${
-                  isBig ? "w-[28.2%]" : "w-[21.7%]"
-                } h-[40vw] md:h-[18vw]`}
-                onClick={() => openPopup(globalIndex)}
-              />
-            );
-          })}
-        </div>
+      <div className="flex flex-col md:flex-row">
+  {topRow.map((img, i) => {
+    const isBig = i % 2 === 0;
+    const globalIndex = i;
+    return (
+      <GalleriTile
+        key={img.id}
+        src={img.asset.url}
+        alt={img.description}
+        className={`${isBig ? "md:w-[28.2%]" : "md:w-[21.7%]"} 
+                    w-full h-[70vw] md:h-[18vw]`}
+        onClick={() => openPopup(globalIndex)}
+      />
+    );
+  })}
+</div>
 
-        <div className="flex">
-          {bottomRow.map((img, i) => {
-            const globalIndex = i + 4; 
-            return (
-              <GalleriTile
-                key={img.id}
-                src={img.asset.url}
-                alt={img.description}
-                className="w-1/3 h-[40vw] md:h-[18vw]"
-                onClick={() => openPopup(globalIndex)}
-              />
-            );
-          })}
-        </div>
+<div className="flex flex-col md:flex-row">
+  {bottomRow.map((img, i) => {
+    const globalIndex = i + 4;
+    return (
+      <GalleriTile
+        key={img.id}
+        src={img.asset.url}
+        alt={img.description}
+        className="w-full md:w-1/3 h-[70vw] md:h-[18vw]"
+        onClick={() => openPopup(globalIndex)}
+      />
+    );
+  })}
+</div>
+
       </div>
 
     

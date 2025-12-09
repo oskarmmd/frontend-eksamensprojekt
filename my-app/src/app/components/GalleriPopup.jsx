@@ -8,7 +8,8 @@ export default function GalleriPopup({ images, activeIndex, onClose, onPrev, onN
   return (
     <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4" onClick={onClose}>
       
-      <div className="relative max-w-2xl w-full bg-black" onClick={(e) => e.stopPropagation()}>
+      <div className="relative max-w-2xl w-full bg-black 
+                mx-16 md:mx-0 rounded-md md:rounded-none" onClick={(e) => e.stopPropagation()}>
        
         <button
           onClick={(e) => {
@@ -43,7 +44,7 @@ export default function GalleriPopup({ images, activeIndex, onClose, onPrev, onN
         
         <div className="px-10 py-8 text-white">
           <h2 className="font-bold text-lg mb-3 uppercase tracking-wide">NIGHT CLUB PARTY</h2>
-          <span className="text-xs leading-relaxed">
+          <span className="text-xs leading-relaxed ">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, vel blanditiis deserunt atque, pariatur magni obcaecati suscipit eius, illum recusandae facilis? Minus velit quam placeat, nam ipsa optio incidunt repudiandae? Fugit quae
             autem, laborum dolorem, nisi aspernatur a, ad dolor tempora repellat cumque!
           </span>
