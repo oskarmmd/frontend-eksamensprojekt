@@ -101,7 +101,7 @@ export default function MusicSection() {
               showSkipControls={true}
               onClickPrevious={handlePrev}
               onClickNext={handleNext}
-              autoPlay={true}
+              autoPlay={false}
               onEnded={handleNext}
               customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
               customControlsSection={[RHAP_UI.CURRENT_TIME, RHAP_UI.DURATION, RHAP_UI.MAIN_CONTROLS, RHAP_UI.ADDITIONAL_CONTROLS, RHAP_UI.VOLUME_CONTROLS]}
