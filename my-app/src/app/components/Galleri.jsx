@@ -38,7 +38,7 @@ export default function Galleri() {
           tiles.forEach((el, i) => {
             setTimeout(() => {
               el.classList.add("visible");
-            }, i * 150); // stagger
+            }, i * 150); 
           });
           observer.disconnect();
         }

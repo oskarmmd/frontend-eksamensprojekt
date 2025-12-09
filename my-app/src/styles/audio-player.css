@@ -1,0 +1,179 @@
+.rhap_container {
+  background: black !important;
+  color: white !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: flex;
+}
+
+.rhap_progress-container {
+  margin: 0 !important;
+}
+
+
+.rhap_progress-section {
+  margin-top: 6px !important;
+  margin-bottom: 20px !important;
+}
+
+.rhap_progress-bar {
+  height: 3px !important;
+  background-color: var(--pink) !important;
+  border-radius: 0 !important;
+}
+
+.rhap_download-progress,
+.rhap_progress-filled {
+  background-color: var(--pink) !important;
+}
+
+.rhap_progress-indicator {
+  width: 14px !important;
+  height: 14px !important;
+  top: -6px !important;
+  margin-left: -7px !important;
+  background-color: white !important;
+  box-shadow: none !important;
+}
+
+
+.rhap_controls-section {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.rhap_controls-section .rhap_time {
+  font-size: 11px !important;
+  color: #d4d4d8 !important;
+}
+
+.rhap_controls-section .rhap_time:first-of-type::after {
+  content: "/";
+  margin: 4px;
+}
+
+.rhap_controls-section .rhap_time:last-of-type {
+  margin-right: auto; 
+}
+
+
+.rhap_main-controls {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 24px;
+  margin-inline: 48px;
+}
+
+.rhap_play-pause-button {
+  font-size: 40px !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+
+.rhap_additional-controls {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px;
+}
+
+
+.rhap_volume-controls {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.rhap_volume-button {
+  color: white !important;
+  font-size: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  transition: 0.2s;
+}
+
+.rhap_volume-button:hover {
+  color: var(--pink) !important;
+}
+
+.rhap_volume-bar {
+  background-color: var(--pink) !important;
+  height: 4px !important;
+  border-radius: 2px;
+}
+
+.rhap_volume-indicator {
+  width: 12px !important;
+  height: 12px !important;
+  top: -4px !important;
+  background-color: var(--pink) !important;
+}
+
+.rhap_volume-filled {
+  background-color: var(--pink) !important;
+}
+
+
+.rhap_main-controls-button,
+.rhap_play-pause-button,
+.rhap_skip-button,
+.rhap_rewind-button,
+.rhap_forward-button,
+.rhap_repeat-button,
+.rhap_volume-button {
+  color: white !important;
+  fill: white !important;
+}
+
+.rhap_main-controls-button:hover,
+.rhap_play-pause-button:hover,
+.rhap_skip-button:hover,
+.rhap_rewind-button:hover,
+.rhap_forward-button:hover,
+.rhap_repeat-button:hover,
+.rhap_volume-button:hover {
+  color: var(--pink) !important;
+  fill: var(--pink) !important;
+}
+
+
+@media (max-width: 768px) {
+  .rhap_controls-section {
+    display: flex !important;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center !important;
+    gap: 16px;
+  }
+
+  
+  .rhap_controls-section {
+    font-size: 11px !important;
+    display: flex;
+    margin: auto;
+    max-width: 24rem;
+    justify-content: center;
+  }
+
+  .rhap_main-controls {
+    gap: 4px;
+    padding: 1rem;
+  }
+
+  .rhap_additional-controls {
+    justify-content: center;
+  }
+
+  .rhap_volume-controls {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .rhap_progress-container {
+    margin: 0 32px !important; 
+  }
+}

@@ -9,6 +9,7 @@ import EventComponent from "./components/EventComponent";
 import TestimonialComponent from "./components/TestimonialsComponent";
 import Galleri from "./components/Galleri";
 import RecentblogComponent from "./components/RecentblogComponent";
+import MusicSection from "./components/MusicSection";
 
 import './globals.css';
 
@@ -26,6 +27,7 @@ export default function Home() {
        <WelcomeCoomponent/>
        <EventComponent/>
        <Galleri/>
+       <MusicSection />
        <TestimonialComponent/>
        <RecentblogComponent/>
 
