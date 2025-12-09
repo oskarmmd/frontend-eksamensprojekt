@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-192 w-full overflow-hidden">
+    <section className="relative h-[89vh] w-full overflow-hidden">
 
       <div className="absolute inset-0">
         <Image
