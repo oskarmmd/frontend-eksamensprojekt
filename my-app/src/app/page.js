@@ -11,6 +11,7 @@ import Galleri from "./components/Galleri";
 import RecentblogComponent from "./components/RecentblogComponent";
 import MusicSection from "./components/MusicSection";
 import LatestVideo from "./components/VideoPlayer";
+import Newsletter from "./components/Newsletter";
 
 
 import './globals.css';
@@ -34,7 +35,7 @@ export default function Home() {
        <LatestVideo />
        <TestimonialComponent/>
        <RecentblogComponent/>
-
+       <Newsletter/>
        <Footer />
        </Suspense>
       </main>
