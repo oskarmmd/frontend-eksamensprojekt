@@ -17,15 +17,13 @@ const EventCard = ({ event }) => {
       {/* Overlay */}
       <div
         className="absolute inset-0  bg-transparent flex flex-col  justify-end  
-                     opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-[var(--pink)] "
+                     opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-[var(--pink)] border-l-0 border-r-0 overflow-hidden"
       >
         <button className="absolute top-32 left-1/2 transform -translate-x-1/2 bg-[var(--pink)] z-10 px-4 py-2 font-bold ">BOOK NOW</button>
 <div
-    className=" absolute w-full 
-               bg-[var(--black)] 
-               text-white text-left 
-               px-5 pb-5 pt-4 
-               flex flex-col">
+    className="absolute w-full text-white bg-[var(--black)] text-left px-5 pb-5 pt-4 flex flex-col
+                transform translate-y-full group-hover:translate-y-0
+                transition-transform duration-500 ease-out">
         <p className="font-bold mb-2 text-lg">{event.title}</p>
         <span className="text-xs">{event.description.split(" ").slice(0, 40).join(" ")}</span>
         </div>
@@ -33,8 +31,14 @@ const EventCard = ({ event }) => {
        
 
             {/* Pink trekanter */}
-            <div className="absolute top-0 left-0 w-0 h-0 border-t-[50px] border-t-pink-500 border-r-[50px] border-r-transparent"></div>
-      <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[50px] border-b-pink-500 border-l-[50px] border-l-transparent"></div>
+            <div className="absolute top-0 left-0 w-0 h-0 
+                border-t-[50px] border-t-[var(--pink)] border-r-[50px] border-r-transparent 
+                transform -translate-x-12 -translate-y-12 
+                transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <div className="absolute bottom-0 right-0 w-0 h-0 
+                border-b-[50px] border-b-[var(--pink)] border-l-[50px] border-l-transparent 
+                transform translate-x-12 translate-y-12 
+                transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0"></div>
 
       </div>
       
