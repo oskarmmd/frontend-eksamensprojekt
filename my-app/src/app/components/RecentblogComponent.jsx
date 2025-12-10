@@ -1,6 +1,7 @@
 
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import RecentblogCard from "./RecentblogCard";
 
@@ -17,11 +18,13 @@ const RecentblogComponent = () => {
   
     return (
       <div className="flex flex-col justify-center items-center ">
-        
+
+<Link href={"/blog"}>
         <h1 className="my-12 text-center">
           RECENT BLOG
           
         </h1>
+        </Link> 
         <div className="flex flex-wrap max-w-[1200px] md: justify-center items-center flex-row">
         {blogs.map((item) => (
     < RecentblogCard key={item.id} blog={item} />
