@@ -19,7 +19,7 @@ const RecentblogComponent = () => {
     return (
       <div className="flex flex-col justify-center items-center ">
 
-<Link href={`/blog/page.js`}>
+<Link href={"/blog"}>
         <h1 className="my-12 text-center">
           RECENT BLOG
           
