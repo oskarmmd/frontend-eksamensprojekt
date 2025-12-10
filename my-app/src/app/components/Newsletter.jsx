@@ -1,7 +1,7 @@
-// src/components/Newsletter.js
 "use client";
 
 import { useState } from "react";
+import EmailField from "./EmailField";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -64,36 +64,20 @@ export default function Newsletter() {
           </h2>
           <p className="text-white/90 text-sm md:text-base">
             Subscribe to our newsletter and never miss an{" "}
-            <span className="text-(--pink) font-semibold">Event</span>
+            <span className="text-[var(--pink)] font-semibold">Event</span>
           </p>
         </div>
 
-        {/* ================= MOBILE (default) ================= */}
+        {/* ================= MOBILE ================= */}
         <form onSubmit={handleSubmit} className="md:hidden">
-          <div className="text-left text-sm text-white/80 mb-3">
-            Enter Your Email
-          </div>
-
-          <div className="border-b border-white/70">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-transparent py-2 text-white text-sm focus:outline-none"
-            />
-          </div>
-
-          {message && (
-            <p
-              className={`mt-3 text-xs ${
-                type === "error"
-                  ? "text-red-400"
-                  : "text-emerald-400"
-              }`}
-            >
-              {message}
-            </p>
-          )}
+          <EmailField
+            email={email}
+            onEmailChange={setEmail}
+            message={message}
+            type={type}
+            labelClassName="text-left"
+            inputClassName="text-sm"
+          />
 
           <div className="mt-10 space-y-3 text-center">
             <div className="h-px bg-white w-40 mx-auto" />
@@ -104,7 +88,7 @@ export default function Newsletter() {
                 ${
                   loading
                     ? "opacity-60 cursor-not-allowed"
-                    : "hover:text-(--pink)"
+                    : "hover:text-[var(--pink)]"
                 }`}
             >
               {loading ? "SENDER…" : "SUBSCRIBE"}
@@ -113,39 +97,19 @@ export default function Newsletter() {
           </div>
         </form>
 
-        {/* ================= DESKTOP (md+) ================= */}
+        {/* ================= DESKTOP ================= */}
         <form
           onSubmit={handleSubmit}
           className="hidden md:flex items-end gap-12"
         >
-          {/* LEFT */}
-          <div className="w-full">
-            <label className="block text-white/80 text-sm mb-3">
-              Enter Your Email
-            </label>
-            <div className="border-b border-white/70">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-transparent py-2 text-white text-base focus:outline-none"
-              />
-            </div>
+          <EmailField
+            email={email}
+            onEmailChange={setEmail}
+            message={message}
+            type={type}
+            inputClassName="text-base"
+          />
 
-            {message && (
-              <p
-                className={`mt-3 text-xs ${
-                  type === "error"
-                    ? "text-red-400"
-                    : "text-emerald-400"
-                }`}
-              >
-                {message}
-              </p>
-            )}
-          </div>
-
-          {/* RIGHT */}
           <div className="flex flex-col items-center min-w-[220px]">
             <div className="h-px w-full bg-white mb-4" />
             <button
