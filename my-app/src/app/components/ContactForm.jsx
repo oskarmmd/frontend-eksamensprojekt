@@ -71,12 +71,12 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto px-6 space-y-8"
       >
-        
+        {/* NAME */}
         <div>
-          <label className="block text-white/80 mb-3 text-sm">
+          <label className="block text-white mb-3 text-sm">
             Your Name
           </label>
-          <div className="border border-white/70">
+          <div className="border border-white">
             <input
               type="text"
               value={name}
@@ -92,13 +92,14 @@ export default function ContactForm() {
           onEmailChange={setEmail}
           message={type === "error" ? message : ""}
           type={type}
+          inputClassName="h-[3.2rem]"
         />
 
         <div>
-          <label className="block text-white/80 mb-3 text-sm">
+          <label className="block text-white mb-3 text-sm">
             Your Comment
           </label>
-          <div className="border border-white/70">
+          <div className="border border-white">
             <textarea
               rows="6"
               value={comment}
