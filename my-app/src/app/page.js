@@ -1,17 +1,17 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer"
-import Hero from "./components/Hero";
+import Header from "./components/reuse/Header";
+import Footer from "./components/reuse/Footer"
+import Hero from "./components/index/Hero";
 import WelcomeCoomponent from '@/app/WelcomeComponent';
 import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"
-import EventComponent from "./components/EventComponent";
-import TestimonialComponent from "./components/TestimonialsComponent";
-import Galleri from "./components/Galleri";
-import RecentblogComponent from "./components/RecentblogComponent";
-import MusicSection from "./components/MusicSection";
-import LatestVideo from "./components/VideoPlayer";
-import Newsletter from "./components/Newsletter";
+import EventComponent from "./components/event/EventComponent";
+import TestimonialComponent from "./components/testiomonial/TestimonialsComponent";
+import Galleri from "./components/galleri/Galleri";
+import RecentblogComponent from "./components/blog/RecentblogComponent";
+import MusicSection from "./components/index/MusicSection";
+import LatestVideo from "./components/index/VideoPlayer";
+import Newsletter from "./components/index/Newsletter";
 
 
 import './globals.css';

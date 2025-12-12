@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import EmailField from "./EmailField";
+import EmailField from "../reuse/EmailField";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -16,7 +16,6 @@ export default function ContactForm() {
     e.preventDefault();
     setMessage("");
     setType(null);
-
 
     if (!name.trim()) {
       setMessage("Indtast venligst dit navn.");
@@ -67,65 +66,33 @@ export default function ContactForm() {
 
   return (
     <section className="bg-black py-20">
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-xl mx-auto px-6 space-y-8"
-      >
+      <form onSubmit={handleSubmit} className="max-w-xl mx-auto px-6 space-y-8">
         {/* NAME */}
         <div>
-          <label className="block text-white mb-3 text-sm">
-            Your Name
-          </label>
+          <label className="block text-white mb-3 text-sm">Your Name</label>
           <div className="border border-white">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full bg-transparent px-4 py-3 text-white focus:outline-none"
-            />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-full bg-transparent px-4 py-3 text-white focus:outline-none" />
           </div>
         </div>
 
-        
-        <EmailField
-          email={email}
-          onEmailChange={setEmail}
-          message={type === "error" ? message : ""}
-          type={type}
-          inputClassName="h-[3.2rem]"
-        />
+        <EmailField email={email} onEmailChange={setEmail} message={type === "error" ? message : ""} type={type} inputClassName="h-[3.2rem]" />
 
         <div>
-          <label className="block text-white mb-3 text-sm">
-            Your Comment
-          </label>
+          <label className="block text-white mb-3 text-sm">Your Comment</label>
           <div className="border border-white">
-            <textarea
-              rows="6"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              className="w-full bg-transparent px-4 py-3 text-white focus:outline-none resize-none"
-            />
+            <textarea rows="6" value={comment} onChange={(e) => setComment(e.target.value)} className="w-full bg-transparent px-4 py-3 text-white focus:outline-none resize-none" />
           </div>
         </div>
 
-        
-        {type === "success" && (
-          <p className="text-emerald-400 text-sm">{message}</p>
-        )}
+        {type === "success" && <p className="text-emerald-400 text-sm">{message}</p>}
 
-        
         <div className="flex flex-col items-center mt-10">
           <div className="h-px w-40 bg-white mb-4" />
           <button
             type="submit"
             disabled={loading}
             className={`tracking-[0.25em] uppercase text-white text-sm transition
-              ${
-                loading
-                  ? "opacity-60 cursor-not-allowed"
-                  : "hover:text-(--pink)"
-              }`}
+              ${loading ? "opacity-60 cursor-not-allowed" : "hover:text-(--pink)"}`}
           >
             {loading ? "SENDER…" : "SEND"}
           </button>

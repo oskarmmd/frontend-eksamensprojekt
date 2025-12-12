@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import EmailField from "./EmailField";
+import EmailField from "../reuse/EmailField";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -23,9 +23,7 @@ export default function Newsletter() {
     }
 
     if (!emailRegex.test(email)) {
-      setMessage(
-        "Indtast venligst en gyldig e-mail, så vi kan sende dig nyhedsbrevet."
-      );
+      setMessage("Indtast venligst en gyldig e-mail, så vi kan sende dig nyhedsbrevet.");
       setType("error");
       return;
     }
@@ -45,9 +43,7 @@ export default function Newsletter() {
       setType("success");
       setEmail("");
     } catch {
-      setMessage(
-        "Noget gik galt ved tilmeldingen. Prøv venligst igen senere."
-      );
+      setMessage("Noget gik galt ved tilmeldingen. Prøv venligst igen senere.");
       setType("error");
     } finally {
       setLoading(false);
@@ -59,25 +55,15 @@ export default function Newsletter() {
       <div className="max-w-6xl mx-auto px-6">
         {/* HEADING */}
         <div className="text-center mb-14">
-          <h2 className="text-white tracking-[0.3em] text-sm md:text-base mb-4">
-            WANT THE LATEST NIGHT CLUB NEWS
-          </h2>
+          <h2 className="text-white tracking-[0.3em] text-sm md:text-base mb-4">WANT THE LATEST NIGHT CLUB NEWS</h2>
           <p className="text-white/90 text-sm md:text-base">
-            Subscribe to our newsletter and never miss an{" "}
-            <span className="text-[var(--pink)] font-semibold">Event</span>
+            Subscribe to our newsletter and never miss an <span className="text-[var(--pink)] font-semibold">Event</span>
           </p>
         </div>
 
         {/* ================= MOBILE ================= */}
         <form onSubmit={handleSubmit} className="md:hidden">
-          <EmailField
-            email={email}
-            onEmailChange={setEmail}
-            message={message}
-            type={type}
-            labelClassName="text-left"
-            inputClassName="text-sm"
-          />
+          <EmailField email={email} onEmailChange={setEmail} message={message} type={type} labelClassName="text-left" inputClassName="text-sm h-[3.2rem]" />
 
           <div className="mt-10 space-y-3 text-center">
             <div className="h-px bg-white w-40 mx-auto" />
@@ -85,11 +71,7 @@ export default function Newsletter() {
               type="submit"
               disabled={loading}
               className={`tracking-[0.25em] uppercase text-sm text-white transition
-                ${
-                  loading
-                    ? "opacity-60 cursor-not-allowed"
-                    : "hover:text-[var(--pink)]"
-                }`}
+                ${loading ? "opacity-60 cursor-not-allowed" : "hover:text-[var(--pink)]"}`}
             >
               {loading ? "SENDER…" : "SUBSCRIBE"}
             </button>
@@ -98,17 +80,8 @@ export default function Newsletter() {
         </form>
 
         {/* ================= DESKTOP ================= */}
-        <form
-          onSubmit={handleSubmit}
-          className="hidden md:flex items-end gap-12"
-        >
-          <EmailField
-            email={email}
-            onEmailChange={setEmail}
-            message={message}
-            type={type}
-            inputClassName="text-base"
-          />
+        <form onSubmit={handleSubmit} className="hidden md:flex items-end gap-12">
+          <EmailField email={email} onEmailChange={setEmail} message={message} type={type} inputClassName="text-base  h-[3.2rem]" />
 
           <div className="flex flex-col items-center min-w-[220px]">
             <div className="h-px w-full bg-white mb-4" />
@@ -116,11 +89,7 @@ export default function Newsletter() {
               type="submit"
               disabled={loading}
               className={`tracking-[0.25em] uppercase text-base text-white transition
-                ${
-                  loading
-                    ? "opacity-60 cursor-not-allowed"
-                    : "hover:text-(--pink)"
-                }`}
+                ${loading ? "opacity-60 cursor-not-allowed" : "hover:text-(--pink)"}`}
             >
               {loading ? "SENDER…" : "SUBSCRIBE"}
             </button>

@@ -1,12 +1,13 @@
 "use client";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/reuse/Header";
+import Footer from "../components/reuse/Footer";
 
 import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Headline from "../components/reuse/Headline";
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -41,9 +42,10 @@ const postsPerPage = 3;
         }
       >
         <Header />
+        <Headline title="BLOG"/>
         <div className="relative flex flex-col justify-center items-center">
-          <h1 className="text-3xl font-bold my-8">BLOG POST</h1>
-          <div className="w-full md:px-8">
+         
+          <div className="w-full mt-12 md:px-8">
             {currentPosts.map((blog, index) => (
               <div
                 key={blog.id}
