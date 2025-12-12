@@ -15,15 +15,25 @@ const EventComponent = () => {
   if (!events.length) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col justify-center items-center mt-12 p-6 bg-[linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6))]
-  bg-[url('/slider_bg_overlay.png')]
-  bg-cover bg-center">
-      <h1 className="my-12 text-center">
-        WELCOME IN NIGHT
-        <span className="text-[var(--pink)]">CLUB</span>
-      </h1>
-      <EventCarousel events={events} />
-    </div>
+<div
+  className="
+    relative
+    flex flex-col justify-center items-center mt-12 p-12
+    bg-[url('/slider_bg_overlay.png')]
+    bg-cover bg-center bg-no-repeat
+    after:absolute after:inset-0 after:bg-black/60 after:content-['']
+  "
+>
+  <div className="relative z-10">
+    <h1 className="mb-12 text-center">
+      WELCOME IN NIGHT
+      <span className="text-[var(--pink)]">CLUB</span>
+    </h1>
+
+    <EventCarousel events={events} />
+  </div>
+</div>
+
   );
 };
 
