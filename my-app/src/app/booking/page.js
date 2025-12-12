@@ -1,10 +1,10 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/reuse/Header";
+import Footer from "../components/reuse/Footer";
 import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif";
-import Headline from "../components/Headline";
-import BookTableSection from "../components/BookTable/BookTableSection";
+import Headline from "../components/reuse/Headline";
+import BookTableSection from "../components/booktable/BookTableSection";
 
 import "../globals.css";
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import EmailField from "../EmailField";
+import EmailField from "../reuse/EmailField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";

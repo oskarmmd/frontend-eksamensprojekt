@@ -1,10 +1,10 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/reuse/Header";
+import Footer from "../components/reuse/Footer";
 import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"
-import Headline from "../components/Headline";
-import ContactForm from "../components/ContactForm";
+import Headline from "../components/reuse/Headline";
+import ContactForm from "../components/contact/ContactForm";
 
 
 import "../globals.css";
