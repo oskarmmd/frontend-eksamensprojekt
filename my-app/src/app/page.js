@@ -1,7 +1,7 @@
 import Header from "./components/reuse/Header";
 import Footer from "./components/reuse/Footer"
 import Hero from "./components/index/Hero";
-import WelcomeCoomponent from '@/app/WelcomeComponent';
+import WelcomeCoomponent from '@/app/components/welcome/WelcomeComponent';
 import { Suspense } from "react";
 import Image from "next/image";
 import Loading from "@/assets/loader/madbars.gif"

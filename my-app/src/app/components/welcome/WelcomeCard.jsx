@@ -1,13 +1,13 @@
 "use client";
-import './globals.css';
+import '@/app/globals.css';
 
 
 import Image from "next/image";
-import Image1 from "../assets/content-img/thumb1.jpg";
-import Icon1 from "../assets/icon/favicon.png";
-import Image2 from "../assets/content-img/reastaurant_1.jpg";
+import Image1 from "@/assets/content-img/thumb1.jpg";
+import Icon1 from "@/assets/icon/favicon.png";
+import Image2 from "@/assets/content-img/reastaurant_1.jpg";
+import Image3 from "@/assets/content-img/thumb2.jpg";
 
-import Image3 from "../assets/content-img/thumb2.jpg";
 
 
 import { MdOutlineRoomService } from "react-icons/md";
