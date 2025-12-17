@@ -54,7 +54,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative z-40 bg-black h-[11vh] border-y-2 border-[#FF2A70]">
+     <header className="sticky top-0 z-50 bg-black h-[11vh] border-y-2 border-[#FF2A70]">
+
         {/* top-left triangle */}
         <svg
           className="absolute top-0 left-0"
